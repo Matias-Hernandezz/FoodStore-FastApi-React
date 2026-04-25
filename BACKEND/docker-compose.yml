@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:15
+    container_name: postgres_db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 12345  # Pon la misma que en tu config.py
+      POSTGRES_DB: mydb-parcial-1       # Pon el mismo nombre que en tu config.py
+    ports:
+      - "5232:5432"               # Mapea el puerto de tu PC al de PostgreSQL
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
